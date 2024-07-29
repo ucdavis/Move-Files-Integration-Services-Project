@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="91"
-  DTS:VersionGUID="{513982DA-8878-408D-843D-8CBD5427419B}">
+  DTS:VersionBuild="92"
+  DTS:VersionGUID="{1AC76763-5F41-4447-8326-07E955651E02}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2155,6 +2155,7 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
           <DTS:ObjectData>
             <FileSystemData
               TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
               TaskSourcePath="User::FileName"
               TaskIsSourceVariable="True"
               TaskDestinationPath="User::DestinationPath"
