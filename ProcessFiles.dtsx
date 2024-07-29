@@ -1,0 +1,2491 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/25/2024 11:48:48 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CAES-323JNL3"
+  DTS:CreatorName="AD3\taylorkj"
+  DTS:DTSID="{BE37B4C4-36D0-4379-B20A-57CD2593D0EC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="91"
+  DTS:VersionGUID="{513982DA-8878-408D-843D-8CBD5427419B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[caes-elzar.AggieEnterprise]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DB8648E7-B01A-41B6-82BD-A86DB6905459}"
+      DTS:ObjectName="caes-elzar.AggieEnterprise">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=caes-elzar;Initial Catalog=AggieEnterprise;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{DB8648E7-B01A-41B6-82BD-A86DB6905459}caes-elzar.AggieEnterprise;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{F20AD38A-ABF8-4710-91F8-8C6146211F5F}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\taylorkj\Box\CRU\Devel\UCD Faculty and Department Portfolio Report\Test\AAES00C PPM 2024-07-29.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[UCD Faculty Report AAES00C - 2024-07-24.xlsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D0ECEBB8-6E95-448C-9BA7-C99D975E4FDA}"
+      DTS:ObjectName="UCD Faculty Report AAES00C - 2024-07-24.xlsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\taylorkj\Box\CRU\Devel\UCD Faculty and Department Portfolio Report\UCD Faculty Report AAES00C - 2024-07-24.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8FACE74F-FF31-4B62-94B7-C9E09BC3D7B1}"
+      DTS:ObjectName="ExcelFileConnectionManager_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=C:\Users\taylorkj\Box\CRU\Devel\UCD Faculty and Department Portfolio Report\UCD Faculty Report 9AAES0D - 2024-07-24.xlsx;Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties="Excel 12.0;HDR=NO;";</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{07BBA259-B748-40AD-8639-718220E03479}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\taylorkj\Box\CRU\Devel\UCD Faculty and Department Portfolio Report\Archived</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{098E4B7D-57CC-4233-A94C-308617B363EA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Dir">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\taylorkj\Box\CRU\Devel\UCD Faculty and Department Portfolio Report\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C76B97B9-89D7-4510-8EA4-A43D233DBFC8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExtendedProperties">
+      <DTS:VariableValue
+        DTS:DataType="8">"Excel 12.0;HDR=NO;"</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{02B9982F-601B-4E9B-9221-22CFDB943344}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\taylorkj\Box\CRU\Devel\UCD Faculty and Department Portfolio Report\Test\AAES00C PPM 2024-07-29.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F6B48409-5201-4FAF-B302-DAEC45EF161D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NumRowsToSkip">
+      <DTS:VariableValue
+        DTS:DataType="3">18</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1038FB98-5C77-47E6-99D4-3EBA6E6FBD62}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT F1 AS Award_Number,&#xA;F2 AS Award_Name,&#xA;F3 AS Award_Start_Date,&#xA;F4 AS Award_End_Date, &#xA;F5 AS Award_Status,&#xA;F6 AS Award_Principal_Investigator,&#xA;F7 AS Funding_Source,&#xA;F8 AS Project_Name,&#xA;F9 AS Project_Number,&#xA;F10 AS Project_Owning_Organization,&#xA;F11 AS Project_Type,&#xA;F12 AS Project_Status,&#xA;F13 AS Task_Name,&#xA;F14 AS Task_Number,&#xA;F15 AS Task_Status, &#xA;F16 AS Project_Manager, &#xA;F17 AS Project_Administrator,&#xA;F18 AS Project_Principal_Investigator,&#xA;F19 AS Project_CoPrincipal_Investigator,&#xA;F20 AS Budget,&#xA;F21 AS Expenses,&#xA;F22 AS Commitments,&#xA;F23 AS Budget_Balance,&#xA;F24 AS Task_Fund,&#xA;F25 AS Task_Purpose,&#xA;F26 AS Task_Program,&#xA;F27 AS Task_Activity &#xA;FROM [Summary$A&quot;+ (DT_WSTR,12)@[User::NumRowsToSkip] +&quot;:AA]&#xA;WHERE F8 IS NOT NULL&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SelectQuery">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT F1 AS Award_Number,
+F2 AS Award_Name,
+F3 AS Award_Start_Date,
+F4 AS Award_End_Date, 
+F5 AS Award_Status,
+F6 AS Award_Principal_Investigator,
+F7 AS Funding_Source,
+F8 AS Project_Name,
+F9 AS Project_Number,
+F10 AS Project_Owning_Organization,
+F11 AS Project_Type,
+F12 AS Project_Status,
+F13 AS Task_Name,
+F14 AS Task_Number,
+F15 AS Task_Status, 
+F16 AS Project_Manager, 
+F17 AS Project_Administrator,
+F18 AS Project_Principal_Investigator,
+F19 AS Project_CoPrincipal_Investigator,
+F20 AS Budget,
+F21 AS Expenses,
+F22 AS Commitments,
+F23 AS Budget_Balance,
+F24 AS Task_Fund,
+F25 AS Task_Purpose,
+F26 AS Task_Program,
+F27 AS Task_Activity 
+FROM [Summary$A18:AA]
+WHERE F8 IS NOT NULL</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Process All PPM Excel Files Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:DelayValidation="True"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{F09F9A76-6E8E-4B7A-9B1A-618D299D1A98}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Process All PPM Excel Files Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{374C7455-819D-4C9B-B3AD-2B23686118E3}"
+        DTS:ObjectName="{374C7455-819D-4C9B-B3AD-2B23686118E3}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::Dir]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\taylorkj\Box\CRU\Devel\UCD Faculty and Department Portfolio Report\" />
+            <FEFEProperty
+              FileSpec="*.xlsx" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{88E57433-04C7-4F56-9612-BBF08F1FCE60}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Excel Files Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Award_Number]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Award_Number"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Number]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Award_Name]"
+                          cachedDataType="wstr"
+                          cachedLength="300"
+                          cachedName="Award_Name"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Name]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Award_Start_Date]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Award_Start_Date"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Start_Date]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Award_End_Date]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Award_End_Date"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_End_Date]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Award_Status]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Award_Status"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Status]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Award_Principal_Investigator]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Award_Principal_Investigator"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Principal_Investigator]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Funding_Source]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Funding_Source"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Funding_Source]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Project_Name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Project_Name"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Name]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Project_Number]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Project_Number"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Number]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Project_Owning_Organization]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Project_Owning_Organization"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Owning_Organization]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Project_Type]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Project_Type"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Type]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Project_Status]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Project_Status"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Status]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Task_Name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Task_Name"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Name]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Task_Number]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Task_Number"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Number]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Task_Status]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Task_Status"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Status]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Project_Manager]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Project_Manager"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Manager]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Project_Administrator]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Project_Administrator"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Administrator]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Project_Principal_Investigator]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Project_Principal_Investigator"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Principal_Investigator]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Project_CoPrincipal_Investigator]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Project_CoPrincipal_Investigator"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_CoPrincipal_Investigator]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Budget]"
+                          cachedDataType="r8"
+                          cachedName="Budget"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Budget]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Expenses]"
+                          cachedDataType="r8"
+                          cachedName="Expenses"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Expenses]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Commitments]"
+                          cachedDataType="r8"
+                          cachedName="Commitments"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Commitments]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Budget_Balance]"
+                          cachedDataType="r8"
+                          cachedName="Budget_Balance"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Budget_Balance]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Task_Fund]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Task_Fund"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Fund]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Task_Purpose]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Task_Purpose"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Purpose]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Task_Program]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Task_Program"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Program]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Task_Activity]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Task_Activity"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Activity]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Number]"
+                          name="Award_Number"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Number]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="300"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Name]"
+                          name="Award_Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Start_Date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Start_Date]"
+                          name="Award_Start_Date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Start_Date]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_End_Date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_End_Date]"
+                          name="Award_End_Date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_End_Date]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Status]"
+                          name="Award_Status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Status]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Principal_Investigator]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="150"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Principal_Investigator]"
+                          name="Award_Principal_Investigator"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Principal_Investigator]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Funding_Source]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Funding_Source]"
+                          name="Funding_Source"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Funding_Source]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Name]"
+                          name="Project_Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Number]"
+                          name="Project_Number"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Number]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Owning_Organization]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Owning_Organization]"
+                          name="Project_Owning_Organization"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Owning_Organization]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Type]"
+                          name="Project_Type"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Type]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Status]"
+                          name="Project_Status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Status]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Name]"
+                          name="Task_Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="6"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Number]"
+                          name="Task_Number"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Number]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Status]"
+                          name="Task_Status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Status]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Manager]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="150"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Manager]"
+                          name="Project_Manager"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Manager]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Administrator]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Administrator]"
+                          name="Project_Administrator"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Administrator]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Principal_Investigator]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="150"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Principal_Investigator]"
+                          name="Project_Principal_Investigator"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Principal_Investigator]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_CoPrincipal_Investigator]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="150"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_CoPrincipal_Investigator]"
+                          name="Project_CoPrincipal_Investigator"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_CoPrincipal_Investigator]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Budget]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Budget]"
+                          name="Budget"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Budget]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Expenses]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Expenses]"
+                          name="Expenses"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Expenses]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Commitments]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Commitments]"
+                          name="Commitments"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Commitments]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Budget_Balance]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Budget_Balance]"
+                          name="Budget_Balance"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Budget_Balance]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Fund]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Fund]"
+                          name="Task_Fund"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Fund]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Purpose]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Purpose]"
+                          name="Task_Purpose"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Purpose]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Program]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Program]"
+                          name="Task_Program"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Program]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Activity]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Activity]"
+                          name="Task_Activity"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Activity]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::SelectQuery</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Number]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Number]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Number]"
+                          name="Award_Number"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Name]"
+                          length="300"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Name]"
+                          name="Award_Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Start_Date]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Start_Date]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Start_Date]"
+                          name="Award_Start_Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_End_Date]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_End_Date]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_End_Date]"
+                          name="Award_End_Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Status]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Status]"
+                          name="Award_Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Principal_Investigator]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Principal_Investigator]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Principal_Investigator]"
+                          name="Award_Principal_Investigator"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Funding_Source]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Funding_Source]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Funding_Source]"
+                          name="Funding_Source"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Name]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Name]"
+                          name="Project_Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Number]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Number]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Number]"
+                          name="Project_Number"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Owning_Organization]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Owning_Organization]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Owning_Organization]"
+                          name="Project_Owning_Organization"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Type]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Type]"
+                          name="Project_Type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Status]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Status]"
+                          name="Project_Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Name]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Name]"
+                          name="Task_Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Number]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Number]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Number]"
+                          name="Task_Number"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Status]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Status]"
+                          name="Task_Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Manager]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Manager]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Manager]"
+                          name="Project_Manager"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Administrator]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Administrator]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Administrator]"
+                          name="Project_Administrator"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Principal_Investigator]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Principal_Investigator]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Principal_Investigator]"
+                          name="Project_Principal_Investigator"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_CoPrincipal_Investigator]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_CoPrincipal_Investigator]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_CoPrincipal_Investigator]"
+                          name="Project_CoPrincipal_Investigator"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Budget]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Budget]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Budget]"
+                          name="Budget"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Expenses]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Expenses]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Expenses]"
+                          name="Expenses"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Commitments]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Commitments]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Commitments]"
+                          name="Commitments"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Budget_Balance]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Budget_Balance]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Budget_Balance]"
+                          name="Budget_Balance"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Fund]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Fund]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Fund]"
+                          name="Task_Fund"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Purpose]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Purpose]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Purpose]"
+                          name="Task_Purpose"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Program]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Program]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Program]"
+                          name="Task_Program"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Activity]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Activity]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Activity]"
+                          name="Task_Activity"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Number]"
+                          dataType="wstr"
+                          length="255"
+                          name="Award_Number" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Name]"
+                          dataType="nText"
+                          name="Award_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Start_Date]"
+                          dataType="wstr"
+                          length="255"
+                          name="Award_Start_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_End_Date]"
+                          dataType="wstr"
+                          length="255"
+                          name="Award_End_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Status]"
+                          dataType="wstr"
+                          length="255"
+                          name="Award_Status" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Principal_Investigator]"
+                          dataType="wstr"
+                          length="255"
+                          name="Award_Principal_Investigator" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Funding_Source]"
+                          dataType="wstr"
+                          length="255"
+                          name="Funding_Source" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Project_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Number]"
+                          dataType="wstr"
+                          length="255"
+                          name="Project_Number" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Owning_Organization]"
+                          dataType="wstr"
+                          length="255"
+                          name="Project_Owning_Organization" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Project_Type" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Status]"
+                          dataType="wstr"
+                          length="255"
+                          name="Project_Status" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Task_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Number]"
+                          dataType="wstr"
+                          length="255"
+                          name="Task_Number" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Status]"
+                          dataType="wstr"
+                          length="255"
+                          name="Task_Status" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Manager]"
+                          dataType="wstr"
+                          length="255"
+                          name="Project_Manager" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Administrator]"
+                          dataType="wstr"
+                          length="255"
+                          name="Project_Administrator" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Principal_Investigator]"
+                          dataType="wstr"
+                          length="255"
+                          name="Project_Principal_Investigator" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_CoPrincipal_Investigator]"
+                          dataType="wstr"
+                          length="255"
+                          name="Project_CoPrincipal_Investigator" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Budget]"
+                          dataType="r8"
+                          name="Budget" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Expenses]"
+                          dataType="r8"
+                          name="Expenses" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Commitments]"
+                          dataType="r8"
+                          name="Commitments" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Budget_Balance]"
+                          dataType="r8"
+                          name="Budget_Balance" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Fund]"
+                          dataType="wstr"
+                          length="255"
+                          name="Task_Fund" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Purpose]"
+                          dataType="wstr"
+                          length="255"
+                          name="Task_Purpose" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Program]"
+                          dataType="wstr"
+                          length="255"
+                          name="Task_Program" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Task_Activity]"
+                          dataType="wstr"
+                          length="255"
+                          name="Task_Activity" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Number]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Number]"
+                          name="Award_Number" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Name]"
+                          dataType="nText"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Name]"
+                          name="Award_Name" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Start_Date]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Start_Date]"
+                          name="Award_Start_Date" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_End_Date]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_End_Date]"
+                          name="Award_End_Date" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Status]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Status]"
+                          name="Award_Status" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Principal_Investigator]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Principal_Investigator]"
+                          name="Award_Principal_Investigator" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Funding_Source]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Funding_Source]"
+                          name="Funding_Source" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Name]"
+                          name="Project_Name" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Number]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Number]"
+                          name="Project_Number" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Owning_Organization]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Owning_Organization]"
+                          name="Project_Owning_Organization" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Type]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Type]"
+                          name="Project_Type" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Status]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Status]"
+                          name="Project_Status" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Name]"
+                          name="Task_Name" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Number]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Number]"
+                          name="Task_Number" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Status]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Status]"
+                          name="Task_Status" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Manager]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Manager]"
+                          name="Project_Manager" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Administrator]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Administrator]"
+                          name="Project_Administrator" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Principal_Investigator]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Principal_Investigator]"
+                          name="Project_Principal_Investigator" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_CoPrincipal_Investigator]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_CoPrincipal_Investigator]"
+                          name="Project_CoPrincipal_Investigator" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Budget]"
+                          dataType="r8"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Budget]"
+                          name="Budget" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Expenses]"
+                          dataType="r8"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Expenses]"
+                          name="Expenses" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Commitments]"
+                          dataType="r8"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Commitments]"
+                          name="Commitments" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Budget_Balance]"
+                          dataType="r8"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Budget_Balance]"
+                          name="Budget_Balance" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Fund]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Fund]"
+                          name="Task_Fund" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Purpose]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Purpose]"
+                          name="Task_Purpose" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Program]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Program]"
+                          name="Task_Program" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Activity]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Task_Activity]"
+                          name="Task_Activity" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FacultyAndDepartmentPortfolioReport_Temp]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[caes-elzar.AggieEnterprise]"
+                      connectionManagerRefId="Package.ConnectionManagers[caes-elzar.AggieEnterprise]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Award_Number]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Award_Number"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_Number]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Number]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Award_Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="300"
+                          cachedName="Award_Name"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_Name]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Name]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Award_Start_Date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Award_Start_Date"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_Start_Date]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Start_Date]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Award_End_Date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Award_End_Date"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_End_Date]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_End_Date]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Award_Status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="Award_Status"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_Status]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Status]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Award_Principal_Investigator]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="Award_Principal_Investigator"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_Principal_Investigator]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Award_Principal_Investigator]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Project_Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Project_Name"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Name]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Name]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Project_Number]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Project_Number"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Number]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Number]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Project_Owning_Organization]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Project_Owning_Organization"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Owning_Organization]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Owning_Organization]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Project_Status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="Project_Status"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Status]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Status]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Task_Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Task_Name"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task/Subtask_Name]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Name]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Task_Number]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="6"
+                          cachedName="Task_Number"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task/Subtask_Number]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Number]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Task_Status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="Task_Status"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task_Status]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Status]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Project_Administrator]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Project_Administrator"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Administrator]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Administrator]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Project_Principal_Investigator]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="Project_Principal_Investigator"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Principal_Investigator]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Principal_Investigator]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Budget]"
+                          cachedDataType="r8"
+                          cachedName="Budget"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Budget]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Budget]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Expenses]"
+                          cachedDataType="r8"
+                          cachedName="Expenses"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Expenses]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Expenses]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Commitments]"
+                          cachedDataType="r8"
+                          cachedName="Commitments"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Commitments]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Commitments]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Budget_Balance]"
+                          cachedDataType="r8"
+                          cachedName="Budget_Balance"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Budget_Balance_(Budget_–_(Comm_&amp;_Exp))]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Budget_Balance]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Task_Fund]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Task_Fund"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task_Fund]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Fund]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Task_Purpose]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Task_Purpose"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task_Purpose]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Purpose]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Task_Program]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Task_Program"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task_Program]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Program]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Task_Activity]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Task_Activity"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task_Activity]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Task_Activity]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Funding_Source]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Funding_Source"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Funding_Source]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Funding_Source]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Project_Type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="Project_Type"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Type]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Type]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Project_CoPrincipal_Investigator]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="Project_CoPrincipal_Investigator"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Co-Principal_Investigator]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_CoPrincipal_Investigator]" />
+                        <inputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Project_Manager]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="Project_Manager"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Manager]"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Project_Manager]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          dataType="i4"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Award_Number" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="300"
+                          name="Award_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_Start_Date]"
+                          dataType="dbDate"
+                          name="Award_Start_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_End_Date]"
+                          dataType="dbDate"
+                          name="Award_End_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_Status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Award_Status" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Award_Principal_Investigator]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="Award_Principal_Investigator" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Funding_Source]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Funding_Source" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Project_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Project_Number" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Owning_Organization]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Project_Owning_Organization" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Project_Type" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Project_Status" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task/Subtask_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Task/Subtask_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task/Subtask_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="6"
+                          name="Task/Subtask_Number" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task_Status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Task_Status" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Manager]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="Project_Manager" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Administrator]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Project_Administrator" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Principal_Investigator]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="Project_Principal_Investigator" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Project_Co-Principal_Investigator]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Project_Co-Principal_Investigator" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Budget]"
+                          dataType="r8"
+                          name="Budget" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Expenses]"
+                          dataType="r8"
+                          name="Expenses" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Commitments]"
+                          dataType="r8"
+                          name="Commitments" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Budget_Balance_(Budget_–_(Comm_&amp;_Exp))]"
+                          dataType="r8"
+                          name="Budget_Balance_(Budget_–_(Comm_&amp;_Exp))" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task_Fund]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Task_Fund" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task_Purpose]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Task_Purpose" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task_Program]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Task_Program" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Task_Activity]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Task_Activity" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Actual_Principal_Investigator]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="Actual_Principal_Investigator" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Net_Budget]"
+                          dataType="numeric"
+                          name="Net_Budget"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          codePage="1252"
+                          dataType="str"
+                          length="7"
+                          name="Department" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UCD_Fund]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="UCD_Fund" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Program]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="Program" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Activity]"
+                          codePage="1252"
+                          dataType="str"
+                          length="6"
+                          name="Activity" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task.Paths[Data Conversion Output]"
+                  endId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task.Paths[Excel Source Output]"
+                  endId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Excel Source Output"
+                  startId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Process All PPM Excel Files Loop Container\Move Processed Files to Archives File System Task"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{2B80AF88-1061-4BF8-9992-9C9AE0A545AD}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Move Processed Files to Archives File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="User::FileName"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::DestinationPath"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Process All PPM Excel Files Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{3E711AE8-619A-4FCE-823B-27CE8A04EF13}"
+          DTS:From="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Process All PPM Excel Files Loop Container\Move Processed Files to Archives File System Task" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{4D54FCE6-F79E-416C-AB57-3816E15E4309}"
+          DTS:ObjectName="{4D54FCE6-F79E-416C-AB57-3816E15E4309}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate FacultyAndDepartmentPortfolioReport and Reload Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E3CD8941-D3C1-42B8-B633-2B27E57D1541}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate FacultyAndDepartmentPortfolioReport and Reload Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DB8648E7-B01A-41B6-82BD-A86DB6905459}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE  [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport]&#xA;&#xA;INSERT INTO [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport](&#xA;&#x9;   [Award_Number]&#xA;      ,[Award_Name]&#xA;      ,[Award_Start_Date]&#xA;      ,[Award_End_Date]&#xA;      ,[Award_Status]&#xA;      ,[Award_Principal_Investigator]&#xA;      ,[Funding_Source]&#xA;      ,[Project_Name]&#xA;      ,[Project_Number]&#xA;      ,[Project_Owning_Organization]&#xA;      ,[Project_Type]&#xA;      ,[Project_Status]&#xA;      ,[Task/Subtask_Name]&#xA;      ,[Task/Subtask_Number]&#xA;      ,[Task_Status]&#xA;      ,[Project_Manager]&#xA;      ,[Project_Administrator]&#xA;      ,[Project_Principal_Investigator]&#xA;      ,[Project_Co-Principal_Investigator]&#xA;      ,[Budget]&#xA;      ,[Expenses]&#xA;      ,[Commitments]&#xA;      ,[Budget_Balance_(Budget_–_(Comm_&amp;_Exp))]&#xA;      ,[Task_Fund]&#xA;      ,[Task_Purpose]&#xA;      ,[Task_Program]&#xA;      ,[Task_Activity]&#xA;      ,[Actual_Principal_Investigator]&#xA;      ,[Net_Budget]&#xA;      ,[Department]&#xA;      ,[UCD_Fund]&#xA;      ,[Program]&#xA;      ,[Activity]&#xA;      ,[LastUpdateDate]&#xA;)&#xA;&#xA;SELECT DISTINCT&#xA;       [Award_Number]&#xA;      ,[Award_Name]&#xA;      ,[Award_Start_Date]&#xA;      ,[Award_End_Date]&#xA;      ,[Award_Status]&#xA;      ,[Award_Principal_Investigator]&#xA;      ,[Funding_Source]&#xA;      ,[Project_Name]&#xA;      ,[Project_Number]&#xA;      ,[Project_Owning_Organization]&#xA;      ,[Project_Type]&#xA;      ,[Project_Status]&#xA;      ,[Task/Subtask_Name]&#xA;      ,[Task/Subtask_Number]&#xA;      ,[Task_Status]&#xA;      ,[Project_Manager]&#xA;      ,[Project_Administrator]&#xA;      ,[Project_Principal_Investigator]&#xA;      ,[Project_Co-Principal_Investigator]&#xA;      ,[Budget]&#xA;      ,[Expenses]&#xA;      ,[Commitments]&#xA;      ,[Budget_Balance_(Budget_–_(Comm_&amp;_Exp))]&#xA;      ,[Task_Fund]&#xA;      ,[Task_Purpose]&#xA;      ,[Task_Program]&#xA;      ,[Task_Activity]&#xA;      ,[Actual_Principal_Investigator]&#xA;      ,[Net_Budget]&#xA;      ,[Department]&#xA;      ,[UCD_Fund]&#xA;      ,[Program]&#xA;      ,[Activity]&#xA;&#x9;  ,GETDATE() AS LastUpdateDate&#xA;  FROM [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport_Temp]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Temp Table Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8FB948E6-D186-4B6A-925D-BA8148B4A938}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Temp Table Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DB8648E7-B01A-41B6-82BD-A86DB6905459}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport_Temp]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update varions fields Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{368a030a-9a54-479e-a0b4-65e2c94523d2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update varions fields Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DB8648E7-B01A-41B6-82BD-A86DB6905459}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="UPDATE [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport_Temp] &#xA;SET [Actual_Principal_Investigator]= t2.ProjectPrincipalInvestigator,&#xA; [Net_Budget] = t2.[Net_Budget],&#xA; [Department] = t2.[Department],&#xA; [UCD_Fund] = t2.[UCD_Fund],&#xA; [Program] = t2.[Program],&#xA; [Activity] = t2.[Activity]&#xA;FROM [dbo].[FacultyAndDepartmentPortfolioReport_Temp] t1&#xA;INNER JOIN (&#xA; SELECT Id&#xA;  , [Project_Owning_Organization]&#xA;  , Org &#xA;  , [Net_Budget]&#xA;  , Department&#xA;  ,UCD_Fund&#xA;  ,Program&#xA;  ,Activity&#xA;  ,[Project_Manager]&#xA;  ,Project_Type&#xA;   ,[Project_Principal_Investigator] As Original_Project_Principal_Investigator&#xA;  -- ,Derived_Project_Principal_Investigator&#xA;   ,CASE WHEN Project_Type LIKE 'Internal' THEN REPLACE (&#xA;   CASE WHEN Project_Principal_Investigator LIKE Project_Manager THEN Derived_Project_Principal_Investigator&#xA;   ELSE COALESCE(Derived_Project_Principal_Investigator, [Project_Principal_Investigator]) END, '-', ' '&#xA;   ) &#xA;   ELSE [Project_Principal_Investigator] END&#xA;    AS ProjectPrincipalInvestigator&#xA;    ,Project_Name&#xA; FROM (&#xA; SELECT Id&#xA;    ,[Project_Owning_Organization]&#xA;   ,CASE WHEN [Project_Owning_Organization] LIKE '9%' THEN SUBSTRING([Project_Owning_Organization], 2,4) ELSE LEFT([Project_Owning_Organization],4) END AS Org&#xA;  , Budget - Expenses AS Net_Budget&#xA;  , LEFT([Project_Owning_Organization],7) AS Department&#xA;    ,[Project_Manager]&#xA;    ,LEFT([Task_Fund], 5) AS UCD_Fund&#xA;   , LEFT([Task_Program], 3) AS Program&#xA;   , CASE WHEN [Task_Program] IS NULL THEN NULL ELSE LEFT([Task_Activity], 6) END AS Activity&#xA;   , Project_Type&#xA;    ,Project_Number&#xA;    ,Project_Name&#xA;   ,[Project_Principal_Investigator]&#xA;    ,CASE WHEN &#xA;   Project_Name NOT LIKE '9A%' AND &#xA;   Project_Name NOT LIKE 'DKO%' AND &#xA;   Project_Name NOT LIKE 'Project %' AND&#xA;     LEFT(Project_Name, 4) NOT IN ('ADES',&#xA; 'ADNO', &#xA; 'CAES',&#xA; 'DKO9',&#xA; 'DKOA',&#xA; 'Cent',&#xA; '9AAN',&#xA; 'AANS',&#xA; 'AARE',&#xA; 'ABAE',&#xA; 'ACBS',&#xA; 'ADES',&#xA; 'ADNO',&#xA; 'AENM',&#xA; 'AETX',&#xA; 'AFST',&#xA; 'AHCE',&#xA; 'ALAW',&#xA; 'ANUT',&#xA; 'APLS',&#xA; 'APPA',&#xA; 'ASAS',&#xA; 'AVIT',&#xA; 'AWFC',&#xA; 'CAES',&#xA; 'GARE',&#xA; 'GATM',&#xA; 'GCMD',&#xA; 'GECL',&#xA; 'GENT',&#xA; 'GGEO' ,&#xA; 'GHDE',&#xA; 'GHYS'&#xA; ) THEN --Project_Name &#xA; CASE &#xA;   WHEN Project_Name LIKE '%AG And RESOURCE ECONOMICS%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' AG And RESOURCE ECONOMICS', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%AGR And ENV SCI DEANS OFFICE%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' AGR And ENV SCI DEANS OFFICE', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%ANIMAL SCIENCE%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' ANIMAL SCIENCE', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%BIOLOGICAL And AG ENGINEERING%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' BIOLOGICAL And AG ENGINEERING', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%CALIFORNIA STATE 4H OFFICE%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' CALIFORNIA STATE 4H OFFICE', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%ENTOMOLOGY NEMATOLOG%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' ENTOMOLOGY NEMATOLOG', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%ENVIRONMENTAL SCIENCE And POLICY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' ENVIRONMENTAL SCIENCE And POLICY', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%ENVIRONMENTAL TOXICOLGY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' ENVIRONMENTAL TOXICOLGY', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%ENVIRONMENTAL TOXICOLOGY%'&#xA;    THEN LEFT(Project_Name, CHARINDEX(' ENVIRONMENTAL TOXICOLOGY', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%FOOD SCIENCE And TECHNOLOGY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' FOOD SCIENCE And TECHNOLOGY', Project_Name)-1)&#xA;&#xA;   WHEN Project_Name LIKE '%HUMAN ECOLOGY%' &#xA;    THEN TRIM(LEFT(Project_Name, CHARINDEX('HUMAN ECOLOGY', Project_Name)-1))&#xA;  &#xA;&#xA;   WHEN Project_Name LIKE '%LAND AIR And WATER RESOURCES%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' LAND AIR And WATER RESOURCES', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%NUTRITION%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' NUTRITION', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%PLANT PATHOLOGY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' PLANT PATHOLOGY', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%PLANT SCIENCES%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' PLANT SCIENCES', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%UCCE%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' UCCE', Project_Name)-1)     &#xA;   WHEN Project_Name LIKE '%VITICULTURE And ENOLOGY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' VITICULTURE And ENOLOGY', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%WILDLIFE And FISHERIES BIOLOGY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' WILDLIFE And FISHERIES BIOLOGY', Project_Name)-1)&#xA;   ELSE Project_Name END &#xA;   END Derived_Project_Principal_Investigator&#xA;        &#xA;&#xA;      &#xA;     &#xA;   FROM [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport_Temp] &#xA;   --WHERE Project_Type = 'Internal'&#xA;   ) t1&#xA; &#xA;  ) t2 ON t1.Id = t2.Id&#xA;  WHERE t1.Department IS NULL&#xA;  &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7B99C77C-D9E6-4B57-953C-4D4564E0713A}"
+      DTS:From="Package\Process All PPM Excel Files Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update varions fields Execute SQL Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{0DF94DC4-0DB0-4E08-BF45-BC5240F88948}"
+      DTS:From="Package\Update varions fields Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Truncate FacultyAndDepartmentPortfolioReport and Reload Execute SQL Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{CD961786-3149-428E-A018-F600D3183B59}"
+      DTS:From="Package\Truncate Temp Table Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Process All PPM Excel Files Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="239,42"
+          Id="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task"
+          TopLeft="76,13" />
+        <NodeLayout
+          Size="331,42"
+          Id="Package\Process All PPM Excel Files Loop Container\Move Processed Files to Archives File System Task"
+          TopLeft="27,99" />
+        <EdgeLayout
+          Id="Package\Process All PPM Excel Files Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="194,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="387,193"
+          Size="387,236"
+          Id="Package\Process All PPM Excel Files Loop Container"
+          TopLeft="524,98" />
+        <NodeLayout
+          Size="465,42"
+          Id="Package\Truncate FacultyAndDepartmentPortfolioReport and Reload Execute SQL Task"
+          TopLeft="925,150" />
+        <NodeLayout
+          Size="278,42"
+          Id="Package\Truncate Temp Table Execute SQL Task"
+          TopLeft="200,188" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Update varions fields Execute SQL Task"
+          TopLeft="626,386" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="718.416666666667,334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="808.666666666667,386">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="272.666666666667,-194"
+              Start="0,0"
+              End="272.666666666667,-186.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-31.2824328696215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-31.2824328696215"
+                    Point2="0,-35.2824328696215"
+                    Point3="4,-35.2824328696215" />
+                  <mssgle:LineSegment
+                    End="268.666666666667,-35.2824328696215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="268.666666666667,-35.2824328696215"
+                    Point2="272.666666666667,-35.2824328696215"
+                    Point3="272.666666666667,-39.2824328696215" />
+                  <mssgle:LineSegment
+                    End="272.666666666667,-186.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="478,212.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46,0"
+              Start="0,0"
+              End="38.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source"
+          TopLeft="140,47" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion"
+          TopLeft="138,132" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination"
+          TopLeft="130,204" />
+        <EdgeLayout
+          Id="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="215.25,89">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="218.5,174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
