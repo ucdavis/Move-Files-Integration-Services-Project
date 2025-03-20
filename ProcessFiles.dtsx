@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="105"
-  DTS:VersionGUID="{0BEF499D-08FA-4714-B3A2-6367568C7739}">
+  DTS:VersionBuild="123"
+  DTS:VersionGUID="{636C630B-A003-477B-AF4D-B6993D6E20C5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -40,17 +40,17 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\caes-data\AE Reports\UCD Faculty and Department Portfolio Report\Test\AAES00C PPM 2024-07-29.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\caes-data\AE Reports\UCD Faculty and Department Portfolio Report\Test\UCD Faculty and Department Portfolio Report(4).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[UCD Faculty Report AAES00C - 2024-07-24.xlsx]"
+      DTS:refId="Package.ConnectionManagers[UCD Faculty and Department Portfolio Report Excel File Connection]"
       DTS:CreationName="FILE"
       DTS:DTSID="{D0ECEBB8-6E95-448C-9BA7-C99D975E4FDA}"
-      DTS:ObjectName="UCD Faculty Report AAES00C - 2024-07-24.xlsx">
+      DTS:ObjectName="UCD Faculty and Department Portfolio Report Excel File Connection">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="C:\Users\taylorkj\Box\CRU\Devel\UCD Faculty and Department Portfolio Report\UCD Faculty Report AAES00C - 2024-07-24.xlsx" />
+          DTS:ConnectionString="\\caes-data\AE Reports\UCD Faculty and Department Portfolio Report\Test\UCD Faculty and Department Portfolio Report(4).xlsx" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -96,11 +96,13 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{02B9982F-601B-4E9B-9221-22CFDB943344}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::FileName]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileName">
       <DTS:VariableValue
-        DTS:DataType="8">\\caes-data\AE Reports\UCD Faculty and Department Portfolio Report\Test\AAES00C PPM 2024-07-29.xlsx</DTS:VariableValue>
+        DTS:DataType="8">\\caes-data\AE Reports\UCD Faculty and Department Portfolio Report\Test\UCD Faculty and Department Portfolio Report(4).xlsx</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -118,46 +120,50 @@
       DTS:Namespace="User"
       DTS:ObjectName="NumRowsToSkip">
       <DTS:VariableValue
-        DTS:DataType="3">18</DTS:VariableValue>
+        DTS:DataType="3">19</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{1038FB98-5C77-47E6-99D4-3EBA6E6FBD62}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT F1 AS Award_Number,&#xA;F2 AS Award_Name,&#xA;F3 AS Award_Start_Date,&#xA;F4 AS Award_End_Date, &#xA;F5 AS Award_Status,&#xA;F6 AS Award_Principal_Investigator,&#xA;F7 AS Funding_Source,&#xA;F8 AS Project_Name,&#xA;F9 AS Project_Number,&#xA;F10 AS Project_Owning_Organization,&#xA;F11 AS Project_Type,&#xA;F12 AS Project_Status,&#xA;F13 AS Task_Name,&#xA;F14 AS Task_Number,&#xA;F15 AS Task_Status, &#xA;F16 AS Project_Manager, &#xA;F17 AS Project_Administrator,&#xA;F18 AS Project_Principal_Investigator,&#xA;F19 AS Project_CoPrincipal_Investigator,&#xA;F20 AS Budget,&#xA;F21 AS Expenses,&#xA;F22 AS Commitments,&#xA;F23 AS Budget_Balance,&#xA;F24 AS Task_Fund,&#xA;F25 AS Task_Purpose,&#xA;F26 AS Task_Program,&#xA;F27 AS Task_Activity &#xA;FROM [Summary$A&quot;+ (DT_WSTR,12)@[User::NumRowsToSkip] +&quot;:AA]&#xA;WHERE F8 IS NOT NULL&quot;"
+      DTS:Expression="&quot;SELECT &#xA;F1  AS  Award_Number,&#xA;F2  AS  Award_Name,&#xA;F3  AS  Award_Entity,&#xA;F4  AS  Award_Type,&#xA;F5  AS  Award_Start_Date,&#xA;F6  AS  Award_End_Date,&#xA;F7  AS  Award_Status,&#xA;F8  AS  Award_Principal_Investigator,&#xA;F9  AS  Funding_Source,&#xA;F10  AS  Project_Number,&#xA;F11  AS  Project_Name,&#xA;F12  AS  Project_Entity,&#xA;F13  AS  Project_Owning_Organization,&#xA;F14  AS  Project_Type,&#xA;F15  AS  Project_Status,&#xA;F16  AS  Project_Manager,&#xA;F17  AS  Project_Administrator,&#xA;F18  AS  Project_Principal_Investigator,&#xA;F19  AS  Project_CoPrincipal_Investigator,&#xA;F20  AS  Task_Number,&#xA;F21  AS  Task_Name,&#xA;F22  AS  Task_Status,&#xA;F23  AS  Task_Fund,&#xA;F24  AS  Task_Purpose,&#xA;F25  AS  Task_Program,&#xA;F26  AS  Task_Activity,&#xA;F27  AS  Budget,&#xA;F28  AS  Expenses,&#xA;F29  AS  Commitments,&#xA;F30  AS  Budget_Balance&#xA;FROM [Summary$A&quot;+ (DT_WSTR,12)@[User::NumRowsToSkip] +&quot;:AD]&#xA;WHERE F10 IS NOT NULL&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="SelectQuery">
       <DTS:VariableValue
-        DTS:DataType="8">SELECT F1 AS Award_Number,
-F2 AS Award_Name,
-F3 AS Award_Start_Date,
-F4 AS Award_End_Date, 
-F5 AS Award_Status,
-F6 AS Award_Principal_Investigator,
-F7 AS Funding_Source,
-F8 AS Project_Name,
-F9 AS Project_Number,
-F10 AS Project_Owning_Organization,
-F11 AS Project_Type,
-F12 AS Project_Status,
-F13 AS Task_Name,
-F14 AS Task_Number,
-F15 AS Task_Status, 
-F16 AS Project_Manager, 
-F17 AS Project_Administrator,
-F18 AS Project_Principal_Investigator,
-F19 AS Project_CoPrincipal_Investigator,
-F20 AS Budget,
-F21 AS Expenses,
-F22 AS Commitments,
-F23 AS Budget_Balance,
-F24 AS Task_Fund,
-F25 AS Task_Purpose,
-F26 AS Task_Program,
-F27 AS Task_Activity 
-FROM [Summary$A18:AA]
-WHERE F8 IS NOT NULL</DTS:VariableValue>
+        DTS:DataType="8">SELECT 
+F1  AS  Award_Number,
+F2  AS  Award_Name,
+F3  AS  Award_Entity,
+F4  AS  Award_Type,
+F5  AS  Award_Start_Date,
+F6  AS  Award_End_Date,
+F7  AS  Award_Status,
+F8  AS  Award_Principal_Investigator,
+F9  AS  Funding_Source,
+F10  AS  Project_Number,
+F11  AS  Project_Name,
+F12  AS  Project_Entity,
+F13  AS  Project_Owning_Organization,
+F14  AS  Project_Type,
+F15  AS  Project_Status,
+F16  AS  Project_Manager,
+F17  AS  Project_Administrator,
+F18  AS  Project_Principal_Investigator,
+F19  AS  Project_CoPrincipal_Investigator,
+F20  AS  Task_Number,
+F21  AS  Task_Name,
+F22  AS  Task_Status,
+F23  AS  Task_Fund,
+F24  AS  Task_Purpose,
+F25  AS  Task_Program,
+F26  AS  Task_Activity,
+F27  AS  Budget,
+F28  AS  Expenses,
+F29  AS  Commitments,
+F30  AS  Budget_Balance
+FROM [Summary$A19:AD]
+WHERE F10 IS NOT NULL</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -1342,6 +1348,36 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
                           lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Task_Activity]"
                           name="Task_Activity"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Entity]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Entity]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Entity]"
+                          name="Award_Entity"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Type]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Award_Type]"
+                          name="Award_Type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Entity]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Entity]"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Project_Entity]"
+                          name="Project_Entity"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1475,6 +1511,21 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
                           dataType="wstr"
                           length="255"
                           name="Task_Activity" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Entity]"
+                          dataType="wstr"
+                          length="255"
+                          name="Award_Entity" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Award_Type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Award_Type" />
+                        <externalMetadataColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Project_Entity]"
+                          dataType="wstr"
+                          length="255"
+                          name="Project_Entity" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -1493,6 +1544,18 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
                           dataType="nText"
                           lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Name]"
                           name="Award_Name" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Entity]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Entity]"
+                          name="Award_Entity" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Type]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Type]"
+                          name="Award_Type" />
                         <outputColumn
                           refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Award_Start_Date]"
                           dataType="wstr"
@@ -1535,6 +1598,12 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
                           length="255"
                           lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Number]"
                           name="Project_Number" />
+                        <outputColumn
+                          refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Entity]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Entity]"
+                          name="Project_Entity" />
                         <outputColumn
                           refId="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Project_Owning_Organization]"
                           dataType="wstr"
@@ -2228,7 +2297,8 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{DB8648E7-B01A-41B6-82BD-A86DB6905459}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE  [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport]&#xA;&#xA;INSERT INTO [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport](&#xA;&#x9;   [Award_Number]&#xA;      ,[Award_Name]&#xA;      ,[Award_Start_Date]&#xA;      ,[Award_End_Date]&#xA;      ,[Award_Status]&#xA;      ,[Award_Principal_Investigator]&#xA;      ,[Funding_Source]&#xA;      ,[Project_Name]&#xA;      ,[Project_Number]&#xA;      ,[Project_Owning_Organization]&#xA;      ,[Project_Type]&#xA;      ,[Project_Status]&#xA;      ,[Task/Subtask_Name]&#xA;      ,[Task/Subtask_Number]&#xA;      ,[Task_Status]&#xA;      ,[Project_Manager]&#xA;      ,[Project_Administrator]&#xA;      ,[Project_Principal_Investigator]&#xA;      ,[Project_Co-Principal_Investigator]&#xA;      ,[Budget]&#xA;      ,[Expenses]&#xA;      ,[Commitments]&#xA;      ,[Budget_Balance_(Budget_–_(Comm_&amp;_Exp))]&#xA;      ,[Task_Fund]&#xA;      ,[Task_Purpose]&#xA;      ,[Task_Program]&#xA;      ,[Task_Activity]&#xA;      ,[Actual_Principal_Investigator]&#xA;      ,[Net_Budget]&#xA;      ,[Department]&#xA;      ,[UCD_Fund]&#xA;      ,[Program]&#xA;      ,[Activity]&#xA;      ,[LastUpdateDate]&#xA;)&#xA;&#xA;SELECT DISTINCT&#xA;       [Award_Number]&#xA;      ,[Award_Name]&#xA;      ,[Award_Start_Date]&#xA;      ,[Award_End_Date]&#xA;      ,[Award_Status]&#xA;      ,[Award_Principal_Investigator]&#xA;      ,[Funding_Source]&#xA;      ,[Project_Name]&#xA;      ,[Project_Number]&#xA;      ,[Project_Owning_Organization]&#xA;      ,[Project_Type]&#xA;      ,[Project_Status]&#xA;      ,[Task/Subtask_Name]&#xA;      ,[Task/Subtask_Number]&#xA;      ,[Task_Status]&#xA;      ,[Project_Manager]&#xA;      ,[Project_Administrator]&#xA;      ,[Project_Principal_Investigator]&#xA;      ,[Project_Co-Principal_Investigator]&#xA;      ,[Budget]&#xA;      ,[Expenses]&#xA;      ,[Commitments]&#xA;      ,[Budget_Balance_(Budget_–_(Comm_&amp;_Exp))]&#xA;      ,[Task_Fund]&#xA;      ,[Task_Purpose]&#xA;      ,[Task_Program]&#xA;      ,[Task_Activity]&#xA;      ,[Actual_Principal_Investigator]&#xA;      ,[Net_Budget]&#xA;      ,[Department]&#xA;      ,[UCD_Fund]&#xA;      ,[Program]&#xA;      ,[Activity]&#xA;&#x9;  ,GETDATE() AS LastUpdateDate&#xA;  FROM [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport_Temp]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="&#x9;USE [AggieEnterprise]&#xA;&#x9;GO&#xA;&#xA;&#x9;DECLARE @IsDebugParam bit = 0&#xA;&#xA;&#x9;EXEC usp_TrunccateAndInsertIntoFacultyAndDepartmentPortfolioReportTable @IsDebug = @IsDebugParam&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2245,6 +2315,7 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{DB8648E7-B01A-41B6-82BD-A86DB6905459}"
+          SQLTask:BypassPrepare="False"
           SQLTask:SqlStatementSource="TRUNCATE TABLE [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport_Temp]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2263,7 +2334,7 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{DB8648E7-B01A-41B6-82BD-A86DB6905459}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="UPDATE [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport_Temp] &#xA;SET [Actual_Principal_Investigator]= t2.ProjectPrincipalInvestigator,&#xA; [Net_Budget] = t2.[Net_Budget],&#xA; [Department] = t2.[Department],&#xA; [UCD_Fund] = t2.[UCD_Fund],&#xA; [Program] = t2.[Program],&#xA; [Activity] = t2.[Activity]&#xA;FROM [dbo].[FacultyAndDepartmentPortfolioReport_Temp] t1&#xA;INNER JOIN (&#xA; SELECT Id&#xA;  , [Project_Owning_Organization]&#xA;  , Org &#xA;  , [Net_Budget]&#xA;  , Department&#xA;  ,UCD_Fund&#xA;  ,Program&#xA;  ,Activity&#xA;  ,[Project_Manager]&#xA;  ,Project_Type&#xA;   ,[Project_Principal_Investigator] As Original_Project_Principal_Investigator&#xA;  -- ,Derived_Project_Principal_Investigator&#xA;   ,CASE WHEN Project_Type LIKE 'Internal' THEN REPLACE (&#xA;   CASE WHEN Project_Principal_Investigator LIKE Project_Manager THEN Derived_Project_Principal_Investigator&#xA;   ELSE COALESCE(Derived_Project_Principal_Investigator, [Project_Principal_Investigator]) END, '-', ' '&#xA;   ) &#xA;   ELSE [Project_Principal_Investigator] END&#xA;    AS ProjectPrincipalInvestigator&#xA;    ,Project_Name&#xA; FROM (&#xA; SELECT Id&#xA;    ,[Project_Owning_Organization]&#xA;   ,CASE WHEN [Project_Owning_Organization] LIKE '9%' THEN SUBSTRING([Project_Owning_Organization], 2,4) ELSE LEFT([Project_Owning_Organization],4) END AS Org&#xA;  , Budget - Expenses AS Net_Budget&#xA;  , LEFT([Project_Owning_Organization],7) AS Department&#xA;    ,[Project_Manager]&#xA;    ,LEFT([Task_Fund], 5) AS UCD_Fund&#xA;   , LEFT([Task_Program], 3) AS Program&#xA;   , CASE WHEN [Task_Program] IS NULL THEN NULL ELSE LEFT([Task_Activity], 6) END AS Activity&#xA;   , Project_Type&#xA;    ,Project_Number&#xA;    ,Project_Name&#xA;   ,[Project_Principal_Investigator]&#xA;    ,CASE WHEN &#xA;   Project_Name NOT LIKE '9A%' AND &#xA;   Project_Name NOT LIKE 'DKO%' AND &#xA;   Project_Name NOT LIKE 'Project %' AND&#xA;     LEFT(Project_Name, 4) NOT IN ('ADES',&#xA; 'ADNO', &#xA; 'CAES',&#xA; 'DKO9',&#xA; 'DKOA',&#xA; 'Cent',&#xA; '9AAN',&#xA; 'AANS',&#xA; 'AARE',&#xA; 'ABAE',&#xA; 'ACBS',&#xA; 'ADES',&#xA; 'ADNO',&#xA; 'AENM',&#xA; 'AETX',&#xA; 'AFST',&#xA; 'AHCE',&#xA; 'ALAW',&#xA; 'ANUT',&#xA; 'APLS',&#xA; 'APPA',&#xA; 'ASAS',&#xA; 'AVIT',&#xA; 'AWFC',&#xA; 'CAES',&#xA; 'GARE',&#xA; 'GATM',&#xA; 'GCMD',&#xA; 'GECL',&#xA; 'GENT',&#xA; 'GGEO' ,&#xA; 'GHDE',&#xA; 'GHYS'&#xA; ) THEN --Project_Name &#xA; CASE &#xA;   WHEN Project_Name LIKE '%AG And RESOURCE ECONOMICS%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' AG And RESOURCE ECONOMICS', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%AGR And ENV SCI DEANS OFFICE%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' AGR And ENV SCI DEANS OFFICE', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%ANIMAL SCIENCE%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' ANIMAL SCIENCE', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%BIOLOGICAL And AG ENGINEERING%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' BIOLOGICAL And AG ENGINEERING', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%CALIFORNIA STATE 4H OFFICE%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' CALIFORNIA STATE 4H OFFICE', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%ENTOMOLOGY NEMATOLOG%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' ENTOMOLOGY NEMATOLOG', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%ENVIRONMENTAL SCIENCE And POLICY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' ENVIRONMENTAL SCIENCE And POLICY', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%ENVIRONMENTAL TOXICOLGY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' ENVIRONMENTAL TOXICOLGY', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%ENVIRONMENTAL TOXICOLOGY%'&#xA;    THEN LEFT(Project_Name, CHARINDEX(' ENVIRONMENTAL TOXICOLOGY', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%FOOD SCIENCE And TECHNOLOGY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' FOOD SCIENCE And TECHNOLOGY', Project_Name)-1)&#xA;&#xA;   WHEN Project_Name LIKE '%HUMAN ECOLOGY%' &#xA;    THEN TRIM(LEFT(Project_Name, CHARINDEX('HUMAN ECOLOGY', Project_Name)-1))&#xA;  &#xA;&#xA;   WHEN Project_Name LIKE '%LAND AIR And WATER RESOURCES%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' LAND AIR And WATER RESOURCES', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%NUTRITION%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' NUTRITION', Project_Name)-1)&#xA;   WHEN Project_Name LIKE '%PLANT PATHOLOGY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' PLANT PATHOLOGY', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%PLANT SCIENCES%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' PLANT SCIENCES', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%UCCE%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' UCCE', Project_Name)-1)     &#xA;   WHEN Project_Name LIKE '%VITICULTURE And ENOLOGY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' VITICULTURE And ENOLOGY', Project_Name)-1) &#xA;   WHEN Project_Name LIKE '%WILDLIFE And FISHERIES BIOLOGY%' &#xA;    THEN LEFT(Project_Name, CHARINDEX(' WILDLIFE And FISHERIES BIOLOGY', Project_Name)-1)&#xA;   ELSE Project_Name END &#xA;   END Derived_Project_Principal_Investigator&#xA;        &#xA;&#xA;      &#xA;     &#xA;   FROM [AggieEnterprise].[dbo].[FacultyAndDepartmentPortfolioReport_Temp] &#xA;   --WHERE Project_Type = 'Internal'&#xA;   ) t1&#xA; &#xA;  ) t2 ON t1.Id = t2.Id&#xA;  WHERE t1.Department IS NULL&#xA;  &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="USE [AggieEnterprise]&#xA;GO&#xA;&#xA;DECLARE @IsDebugParam bit = 0&#xA;&#xA;EXEC usp_UpdateValuesInFacultyAndDepartmentPortfolioReport_TempTable  @IsDebug = @IsDebugParam&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2316,31 +2387,31 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="361,42"
+          Size="344.8,41.6"
           Id="Package\Only Continie if temp table was loaded Execute SQL Task"
           TopLeft="193,376" />
         <NodeLayout
-          Size="239,42"
+          Size="239.2,41.6"
           Id="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task"
-          TopLeft="76,13" />
+          TopLeft="77.6666665756042,13" />
         <NodeLayout
-          Size="331,42"
+          Size="331.2,41.6"
           Id="Package\Process All PPM Excel Files Loop Container\Move Processed Files to Archives File System Task"
           TopLeft="27,99" />
         <EdgeLayout
           Id="Package\Process All PPM Excel Files Loop Container.PrecedenceConstraints[Constraint]"
-          TopLeft="194,55">
+          TopLeft="194.933333287802,54.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44"
+              EndConnector="0,44.4"
               Start="0,0"
-              End="0,36.5">
+              End="0,36.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.5" />
+                    End="0,36.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2352,75 +2423,31 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="387,193"
-          Size="387,236"
+          PanelSize="387.2,192.8"
+          Size="387.2,236"
           Id="Package\Process All PPM Excel Files Loop Container"
           TopLeft="524,98" />
         <NodeLayout
-          Size="465,42"
+          Size="464.8,41.6"
           Id="Package\Truncate FacultyAndDepartmentPortfolioReport and Reload Execute SQL Task"
-          TopLeft="914,374" />
+          TopLeft="913.166666712198,374" />
         <NodeLayout
-          Size="278,42"
+          Size="278.4,41.6"
           Id="Package\Truncate Temp Table Execute SQL Task"
           TopLeft="200,188" />
         <NodeLayout
-          Size="276,42"
+          Size="264.8,41.6"
           Id="Package\Update varions fields Execute SQL Task"
           TopLeft="584,376" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="478,212.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="46,0"
-              Start="0,0"
-              End="38.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="38.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="860,396">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="54,0"
-              Start="0,0"
-              End="46.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="46.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="717.5,334">
+          TopLeft="717.6,334">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-344,42"
+              EndConnector="-352.2,42"
               Start="0,0"
-              End="-344,34.5">
+              End="-352.2,34.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2431,13 +2458,13 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
                     Point2="0,21"
                     Point3="-4,21" />
                   <mssgle:LineSegment
-                    End="-340,21" />
+                    End="-348.2,21" />
                   <mssgle:CubicBezierSegment
-                    Point1="-340,21"
-                    Point2="-344,21"
-                    Point3="-344,25" />
+                    Point1="-348.2,21"
+                    Point2="-352.2,21"
+                    Point3="-352.2,25" />
                   <mssgle:LineSegment
-                    End="-344,34.5" />
+                    End="-352.2,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2448,26 +2475,70 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="554,397">
+          TopLeft="537.8,396.8">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="30,0"
+              EndConnector="46.2,0"
               Start="0,0"
-              End="22.5,0">
+              End="38.7,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="22.5,0" />
+                    End="38.7,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="3.25,5,16,16"
+              BoundingBox="11.35,5,16,16"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="478.4,212.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45.6,0"
+              Start="0,0"
+              End="38.1,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.1,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="848.8,395.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.3666667121983,0"
+              Start="0,0"
+              End="56.8666667121983,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="56.8666667121983,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2479,15 +2550,15 @@ WHERE F8 IS NOT NULL</DTS:VariableValue>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="144,42"
+          Size="144,41.6"
           Id="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Excel Source"
           TopLeft="140,47" />
         <NodeLayout
-          Size="161,42"
+          Size="160.8,41.6"
           Id="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\Data Conversion"
           TopLeft="138,132" />
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\Process All PPM Excel Files Loop Container\Load Excel Files Data Flow Task\OLE DB Destination"
           TopLeft="130,204" />
         <EdgeLayout

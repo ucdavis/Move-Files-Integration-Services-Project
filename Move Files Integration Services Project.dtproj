@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">CAES-323JNL3</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAn4SUOrFk+Einu4pdiplI9wAAAAACAAAAAAADZgAAwAAAABAAAABkF0j6SXfW2dpgf3FEUmFxAAAAAASAAACgAAAAEAAAAEseNRtfvnPfPeJzLP9FDsmIAAAA2q9G8BBLSvdPbyu5z6NZYM7OzsgeeusxfkM6L+0UMC+WyE1DzWd//1lQJ7dFN4YR/D/ByFDLMSyVATdRsRg7cRlOwbm58yRhxcvs5q0WNq+YYXhI/Fv2TdeAs2i9/WEfubsqGr4Ge+AXUuG3MZk6SacYlFzFtUtnPlleGn1bakYiL/3/Gz2WahQAAABRvgKS8cRu9Fpm92AC/yPljNDnAQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJWrfbacwwkyiGKId2604gAAAAAACAAAAAAADZgAAwAAAABAAAADPTw6NibXQHPyUSUnuf0FdAAAAAASAAACgAAAAEAAAAN3LLT49FqWcl/HjGQO2pqCIAAAA/W3oJsewwSB4rHvFITn+6OlK8pUQJdmucQhWaamP+RcTdGeDtlu8y13WOg3tLv9CC5CDWBajoOBaPfU/vRsnRDZ8rwjepiNCKa1ZSv0ijhn3ztqbA8osaTEZSyD1mwhjQBiPj9rc5d4IDSWGQmZIoXHPxz+dHreRwIrt0ioesrHyMgt6eCcYAxQAAABygE3z48gsUqiNV/7F/twv/a0HFw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,10 +42,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">81</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">117</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{1BB049EE-3167-4E8B-B196-F7C928C593E0}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{FB3C8311-E2D0-4A83-9BDB-0E42C8A4EA33}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -240,7 +240,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=UCD Faculty Report 9AAES0D - 2024-07-24.xlsx;Extended Properties="EXCEL 12.0 XML;HDR=NO";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\caes-data\AE Reports\UCD Faculty and Department Portfolio Report\Test\UCD Faculty and Department Portfolio Report(4).xlsx;Extended Properties="EXCEL 12.0 XML;HDR=NO";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -313,7 +313,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">UCD Faculty Report 9AAES0D - 2024-07-24.xlsx</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">\\caes-data\AE Reports\UCD Faculty and Department Portfolio Report\Test\UCD Faculty and Department Portfolio Report(4).xlsx</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -331,7 +331,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.UCD Faculty Report AAES00C - 2024-07-24.xlsx.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.UCD Faculty and Department Portfolio Report Excel File Connection.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -346,7 +346,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.UCD Faculty Report AAES00C - 2024-07-24.xlsx.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.UCD Faculty and Department Portfolio Report Excel File Connection.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -357,7 +357,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\taylorkj\Box\CRU\Devel\UCD Faculty and Department Portfolio Report\UCD Faculty Report AAES00C - 2024-07-24.xlsx</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">\\caes-data\AE Reports\UCD Faculty and Department Portfolio Report\Test\UCD Faculty and Department Portfolio Report(4).xlsx</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
